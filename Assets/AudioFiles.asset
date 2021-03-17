@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7978ef23704dde84f8d91087b9c4d27b, type: 3}
+  m_Name: AudioFiles
+  m_EditorClassIdentifier: 
+  ClickSFX: {fileID: 8300000, guid: 2ca04de59105bc244adc939146f60ed6, type: 3}
+  DragSFX: {fileID: 8300000, guid: 729634e610c34bc4db6148c2bb7c2263, type: 3}
+  DropSFX: {fileID: 8300000, guid: 7f183946a04dfc44592ba20640823d06, type: 3}
+  RemoveSFX: {fileID: 8300000, guid: 87ec2cbe3aff5b342b33a355c387159d, type: 3}
