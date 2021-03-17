@@ -1,19 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-public class LoadoutItem : MonoBehaviour
+
+public class LoadoutItem : MonoBehaviour, IItem
 {
-    public Loadout loadout;
+    Item loadout;
     Image imageRenderer;
 
     void Awake()
     {
         imageRenderer = GetComponent<Image>();
-        UpdateLoadout(loadout);
+        UpdateItem(loadout);
     }
 
-    public void UpdateLoadout(Loadout newLoadout = null)
+    public void UpdateItem(Item newLoadout = null)
     {
         loadout = newLoadout;
 
@@ -24,5 +23,15 @@ public class LoadoutItem : MonoBehaviour
             imageRenderer.sprite = loadout.Image;
             imageRenderer.enabled = true;
         }
+    }
+
+    public bool IsItemNull()
+    {
+        return (loadout == null);
+    }
+
+    public Item GetItem()
+    {
+        return loadout;
     }
 }

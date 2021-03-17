@@ -1,30 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
 
 public class RemoveLoadoutFromCharacter : MonoBehaviour, IPointerClickHandler
 {
-    LoadoutItem loadoutItem;
+    IItem loadoutItem;
 
     void Awake()
     {
-        loadoutItem = GetComponent<LoadoutItem>();
+        loadoutItem = GetComponent<IItem>();
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        print("OnPointerClick: "+transform.name);
 
-
-        if (loadoutItem.loadout == null)
+        if (loadoutItem == null || loadoutItem.IsItemNull())
             return;
 
-        OnLoadoutRemove?.Invoke(loadoutItem.loadout);
-        loadoutItem.UpdateLoadout();
+        OnLoadoutRemove?.Invoke(loadoutItem.GetItem());
+        loadoutItem.UpdateItem();
     }
 
 
-    public static Action<Loadout> OnLoadoutRemove;
+    public static Action<Item> OnLoadoutRemove;
 }

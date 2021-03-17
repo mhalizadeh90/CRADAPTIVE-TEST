@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-
-    List<InventoryItem> inventoryItems;
+    List<IItem> inventoryItems;
 
     void Awake()
     {
-        inventoryItems = new List<InventoryItem>();
+        inventoryItems = new List<IItem>();
     }
 
     void OnEnable()
@@ -18,18 +16,18 @@ public class InventoryManager : MonoBehaviour
         RemoveLoadoutFromCharacter.OnLoadoutRemove += FillEmptyInventorySlot;
     }
 
-    void InitializeInventoryItem(InventoryItem item)
+    void InitializeInventoryItem(IItem item)
     {
         inventoryItems.Add(item);
     }
 
-    void FillEmptyInventorySlot(Loadout loadout)
+    void FillEmptyInventorySlot(Item loadout)
     {
         for (int i = 0; i < inventoryItems.Count; i++)
         {
-            if(inventoryItems[i].loadout == null)
+            if(inventoryItems[i].IsItemNull())
             {
-                inventoryItems[i].UpdateLoadout(loadout);
+                inventoryItems[i].UpdateItem(loadout);
                 break;
             }
         }

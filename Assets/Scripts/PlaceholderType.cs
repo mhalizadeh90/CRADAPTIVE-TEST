@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using UnityEngine;
+
 public class PlaceholderType : MonoBehaviour
 {
 
@@ -16,19 +13,19 @@ public class PlaceholderType : MonoBehaviour
 
     void OnEnable()
     {
-        DropEventTrigger.OnDroppedOnLoadout += CheckDroppedLoadout;
+        DropItemHandler.OnDropLoadout += SetLoadoutBasedOnDroppedItem;
     }
-    void CheckDroppedLoadout(Loadout droppedLoadout)
+    void SetLoadoutBasedOnDroppedItem(Item droppedLoadout)
     {
-        if (droppedLoadout.Type != placeholderType)
+        if (droppedLoadout == null || droppedLoadout.Type != placeholderType)
             return;
 
-        LoadoutItem.UpdateLoadout(droppedLoadout);
+        LoadoutItem.UpdateItem(droppedLoadout);
     }
 
     void OnDisable()
     {
-        DropEventTrigger.OnDroppedOnLoadout -= CheckDroppedLoadout;
+        DropItemHandler.OnDropLoadout -= SetLoadoutBasedOnDroppedItem;
     }
 
 }

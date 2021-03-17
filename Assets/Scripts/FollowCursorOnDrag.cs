@@ -1,26 +1,40 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class FollowCursorOnDrag : MonoBehaviour, IDragHandler, IPointerDownHandler
 {
     RectTransform rectTransform;
-    [SerializeField] FloatVariable canvasScale;
+    float canvasScale = 1;
+
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
     }
 
-    public void OnDrag(PointerEventData eventData)
+    void OnEnable()
     {
-        rectTransform.anchoredPosition += eventData.delta / canvasScale.value;
+        broadcastCanvasScale.onMainCanvasEnabled += GetCanvasScale;
+    }
+
+    void GetCanvasScale(float canvasScale)
+    {
+        this.canvasScale = canvasScale;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         OnDragStart?.Invoke();
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        rectTransform.anchoredPosition += eventData.delta / canvasScale;
+    }
+
+    void OnDisable()
+    {
+        broadcastCanvasScale.onMainCanvasEnabled -= GetCanvasScale;
     }
 
     public static Action OnDragStart;

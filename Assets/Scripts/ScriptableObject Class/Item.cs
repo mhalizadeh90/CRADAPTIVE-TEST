@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="Loadout")]
-public class Loadout : ScriptableObject
+public class Item : ScriptableObject
 {
     public LoadoutType Type;
     public Sprite Image;

@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System;
 
 [RequireComponent(typeof(Image))]
 [RequireComponent(typeof(CanvasGroup))]
-public class InventoryItem : MonoBehaviour
+public class InventoryItem : MonoBehaviour, IItem
 {
+    [SerializeField] Item item;
 
-    public Loadout loadout;
     Image imageRenderer;
     CanvasGroup canvasGroup;
 
@@ -17,7 +15,7 @@ public class InventoryItem : MonoBehaviour
     {
         imageRenderer = GetComponent<Image>();
         canvasGroup = GetComponent<CanvasGroup>();
-        UpdateLoadout(loadout);
+        UpdateItem(item);
     }
 
 
@@ -26,19 +24,29 @@ public class InventoryItem : MonoBehaviour
         OnInventoryItemEnabled?.Invoke(this);
     }
 
-    public void UpdateLoadout(Loadout newLoadout = null)
+    public void UpdateItem(Item newLoadout = null)
     {
-        loadout = newLoadout;
+        item = newLoadout;
 
-        if (loadout == null)
+        if (item == null)
             canvasGroup.alpha = 0;
         else
         {
-            imageRenderer.sprite = loadout.Image;
+            imageRenderer.sprite = item.Image;
             canvasGroup.alpha = 1;
         }
     }
 
-    public static Action<InventoryItem> OnInventoryItemEnabled;
+    public bool IsItemNull()
+    {
+        return (item == null);
+    }
+
+    public Item GetItem()
+    {
+        return item;
+    }
+
+    public static Action<IItem> OnInventoryItemEnabled;
 
 }

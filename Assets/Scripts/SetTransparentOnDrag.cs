@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 
@@ -8,6 +6,7 @@ using UnityEngine.EventSystems;
 public class SetTransparentOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     CanvasGroup canvasGroup;
+
 
     void Awake()
     {
@@ -27,12 +26,23 @@ public class SetTransparentOnDrag : MonoBehaviour, IPointerDownHandler, IPointer
 
     void SetTransparent()
     {
+        if (isSlotEmpty())
+            return;
+
         canvasGroup.alpha = 0.8f;
     }
 
     void ResetTransparency()
     {
+        if (isSlotEmpty())
+            return;
+
         canvasGroup.alpha = 1;
+    }
+
+    bool isSlotEmpty()
+    {
+        return (canvasGroup.alpha == 0);
     }
 
 

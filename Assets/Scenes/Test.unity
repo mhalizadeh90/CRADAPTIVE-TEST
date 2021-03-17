@@ -239,7 +239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9a4c6a9d6bdee0439a0ebccf5304171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasScale: {fileID: 11400000, guid: 58aff429313ab08488949b6ee69543fa, type: 2}
 --- !u!1 &128638527
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,7 +692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb3e72227148484b9440a19eace4162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasScale: {fileID: 11400000, guid: 58aff429313ab08488949b6ee69543fa, type: 2}
 --- !u!225 &307407038
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -817,6 +815,10 @@ PrefabInstance:
       propertyPath: loadout
       value: 
       objectReference: {fileID: 11400000, guid: c310063f2088daf43a0f26dfd98236d1, type: 2}
+    - target: {fileID: 5959080046165162832, guid: f612784695e91c547a5f746969543dc8, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: bacc539f5f7227a43bbd25b6bd1ec13d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f612784695e91c547a5f746969543dc8, type: 3}
 --- !u!1 &463406998
@@ -1796,6 +1798,10 @@ PrefabInstance:
       propertyPath: loadout
       value: 
       objectReference: {fileID: 11400000, guid: 38ccdc7e44ae68e4ab664a7b6b04aad5, type: 2}
+    - target: {fileID: 5959080046165162832, guid: f612784695e91c547a5f746969543dc8, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f59ff5b3c106ff4b8cb3975a53ea10c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f612784695e91c547a5f746969543dc8, type: 3}
 --- !u!1 &1445846919
@@ -2364,6 +2370,10 @@ PrefabInstance:
       propertyPath: loadout
       value: 
       objectReference: {fileID: 11400000, guid: bacc539f5f7227a43bbd25b6bd1ec13d, type: 2}
+    - target: {fileID: 5959080046165162832, guid: f612784695e91c547a5f746969543dc8, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 38ccdc7e44ae68e4ab664a7b6b04aad5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f612784695e91c547a5f746969543dc8, type: 3}
 --- !u!224 &1770197614 stripped
@@ -2386,7 +2396,6 @@ GameObject:
   - component: {fileID: 1865952923}
   - component: {fileID: 1865952924}
   - component: {fileID: 1865952925}
-  - component: {fileID: 1865952926}
   m_Layer: 5
   m_Name: Loadout Panel
   m_TagString: Untagged
@@ -2465,7 +2474,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb3e72227148484b9440a19eace4162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasScale: {fileID: 11400000, guid: 58aff429313ab08488949b6ee69543fa, type: 2}
 --- !u!114 &1865952923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2503,18 +2511,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 1
---- !u!114 &1865952926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865952918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99cd3db358079a2479df37ac0a8f1f39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1945487080 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5123822035216764348, guid: 57dbe109deeff9246a67a03478980c98, type: 3}
@@ -2953,5 +2949,9 @@ PrefabInstance:
       propertyPath: loadout
       value: 
       objectReference: {fileID: 11400000, guid: 8f59ff5b3c106ff4b8cb3975a53ea10c, type: 2}
+    - target: {fileID: 5959080046165162832, guid: f612784695e91c547a5f746969543dc8, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: c310063f2088daf43a0f26dfd98236d1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f612784695e91c547a5f746969543dc8, type: 3}

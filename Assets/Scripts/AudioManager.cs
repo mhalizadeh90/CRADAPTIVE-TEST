@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
@@ -10,7 +8,7 @@ public class AudioManager : MonoBehaviour
     void OnEnable()
     {
         RemoveLoadoutFromCharacter.OnLoadoutRemove += PlayRemoveItemSFX;
-        DropEventTrigger.OnDropped += PlayDropSFX;
+        DropItemHandler.OnDropped += PlayDropSFX;
         FollowCursorOnDrag.OnDragStart += PlayDragSFX;
         ResetPositionOnDrop.OnItemReset += PlayResetItemSFX;
     }
@@ -33,7 +31,7 @@ public class AudioManager : MonoBehaviour
         SFXPlayer.Play();
     }
 
-    public void PlayRemoveItemSFX(Loadout loadout)
+    public void PlayRemoveItemSFX(Item loadout)
     {
         //TODO: play different SFX for each Loadout type
 
@@ -51,7 +49,7 @@ public class AudioManager : MonoBehaviour
     void OnDisable()
     {
         RemoveLoadoutFromCharacter.OnLoadoutRemove += PlayRemoveItemSFX;
-        DropEventTrigger.OnDropped -= PlayDropSFX;
+        DropItemHandler.OnDropped -= PlayDropSFX;
         FollowCursorOnDrag.OnDragStart -= PlayDragSFX;
         ResetPositionOnDrop.OnItemReset -= PlayResetItemSFX;
     }
